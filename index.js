@@ -1,11 +1,24 @@
 let isModalOpen = false;
+let contrastToggle = false;
+const scaleFactor = 1/20
 
-function toggleContrast(){
+function moveBackground(event) {
+  // Move background shapes slightly based on pointer position
+  const shapes = document.querySelectorAll(".shape");
+  const x = event.clientX * scaleFactor // range approx -15..15
+  const y = event.clientY * scaleFactor
+  for (let i = 0; i < shapes.length; i++) {
+    const boolInt = i % 2 === 0 ? 1 : -1;
+    shapes[i].style.transform = `translate(${x * boolInt}px, ${y * boolInt}px)`;
+  }
+}
+
+function toggleContrast() {
   contrastToggle = !contrastToggle;
-  if(contrastToggle){
-  document.body.classList.add ( "dark-theme")}
-  else {
-    document.body.classList.remove("dark-theme")
+  if (contrastToggle) {
+    document.body.classList.add("dark-theme");
+  } else {
+    document.body.classList.remove("dark-theme");
   }
 }
 
@@ -32,7 +45,6 @@ function contact(event) {
       );
     });
 }
-
 
 function toggleModal() {
   if (isModalOpen) {
