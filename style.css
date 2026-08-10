@@ -7,6 +7,10 @@
   font-family: "roboto", sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 li {
   list-style-type: none;
 }
@@ -221,6 +225,8 @@ nav,
   position: fixed;
   bottom: 32px;
   right: 40px;
+  z-index: 100;
+  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
 }
 
 .scroll {
@@ -655,4 +661,20 @@ Shapes
   .nav__link:first-child{
     display: none;
   }
+  .project__description--para{
+    display: none;  }
+
+  .project__description {
+      left: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .project__description--sub-title{
+      margin-bottom: 8px;
+    }
+
+    .modal__half {
+      padding: 40px;
+    }
 }
